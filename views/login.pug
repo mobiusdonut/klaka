@@ -1,0 +1,59 @@
+extends layout
+
+block content
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    a.navbar-brand(href='#') Klaka
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+
+    .collapse.navbar-collapse(id='navbarSupportedContent')
+      ul.navbar-nav.mr-auto
+        li.nav-item.active
+          a.nav-link(href='#') Home
+        li.nav-item
+          a.nav-link(href='/portal/student-home') SchoolLoop
+        li.nav-item
+          a.nav-link(href='/flex') Flex Time
+        li.nav-item
+          a.nav-link(href='/minga') Minga
+      ul.navbar-nav.float-right
+        li.nav-item
+          a.nav-link(href='/logout') Logout
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle(id='navbarDropdownMenuLink', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Accounts
+          .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+            a.dropdown-item(href='#') Settings
+      div.text-center
+  form(class="form-signin" method="POST" action="/portal/")
+      #error
+          if error
+              p.text-danger Error signing in, try again.
+          else if signout
+              p.text-danger Successfully signed out.
+
+      - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
+      h1(class=h1Classes) Sign in with your Klaka account
+
+      //-input username
+      label( for="inputUser" class="sr-only") Username
+      input(type="username" name="username" id="inputUser" class="form-control" placeholder="Username" required autofocus)
+
+      //-input password
+      label(for="inputPassword" class="sr-only") Password
+      input(type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required)
+
+      //-remember Checkbox
+      - var divClasses=['checkbox', 'mb-3'];
+      div(class=divClasses)
+          label
+              input(type="checkbox" value="remember-me")
+              span Remember me
+
+      //-signIn button
+      - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
+      button(class=buttonClass type="submit") Sign in
+
+      - var pClasses=['mt-5', 'mb-3', 'text-muted'];
+      p(class=pClasses) &copy; 2017-2018
+  div.aboutwrap
+    a.about(href="/about") About Klaka

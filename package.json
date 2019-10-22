@@ -1,0 +1,28 @@
+{
+  "name": "klaka",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": "10.15.1"
+  },
+  "scripts": {
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-session": "^1.17.0",
+    "express-validator": "^6.2.0",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11",
+    "puppeteer": "^1.20.0",
+    "require-context": "^1.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

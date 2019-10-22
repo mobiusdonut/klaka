@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    a.navbar-brand(href='#') Klaka
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+
+    .collapse.navbar-collapse(id='navbarSupportedContent')
+      ul.navbar-nav.mr-auto
+        li.nav-item.active
+          a.nav-link(href='#') Home
+        li.nav-item
+          a.nav-link(href='/portal/student-home') SchoolLoop
+        li.nav-item
+          a.nav-link(href='/flex') Flex Time
+        li.nav-item
+          a.nav-link(href='/minga') Minga
+      ul.navbar-nav.float-right
+        li.nav-item
+          a.nav-link(href='/logout') Logout
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle(id='navbarDropdownMenuLink', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Accounts
+          .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+            a.dropdown-item(href='#') Settings
+  h3 Classes
+  div.class_table
+    table(style='width:100%', border='0')
+      tr
+        th Period
+        th Course
+        th Teacher
+      each slot in sched
+        tr
+          td= slot.period
+          td= slot.course
+          td= slot.teacher
